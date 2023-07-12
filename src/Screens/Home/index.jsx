@@ -45,6 +45,7 @@ export function Home() {
         w='100%'
         h='100%'
         justifyContent='space-between'
+        alignItems='center'
       >
         <AppBar />
         <Fab
