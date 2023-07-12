@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, Center, Icon, Text, HStack } from "react-native";
+import { Pressable, Center, Icon, Text, HStack } from "native-base";
 import {
   MaterialIcons,
   AntDesign,

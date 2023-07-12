@@ -16,8 +16,8 @@ import {
   AntDesign,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
-import { AppBar } from "../../Components/AppBar/index";
-import { Footer } from "../../Components/Footer/index";
+import { AppBar } from "../../Components/AppBar";
+import { Footer } from "../../Components/Footer";
 
 export function Home() {
   const [selected, setSelected] = useState(1);
@@ -46,19 +46,23 @@ export function Home() {
         h='100%'
         justifyContent='space-between'
       >
-        <Fab
-          renderInPortal={false}
-          shadow={2}
-          size='sm'
-          icon={
-            <Icon
-              color='#FFF'
-              as={AntDesign}
-              name='plus'
+        <Center>
+        <HStack>
+            <Fab
+              renderInPortal={false}
+              shadow={2}
               size='sm'
+              icon={
+                <Icon
+                  color='#FFF'
+                  as={AntDesign}
+                  name='plus'
+                  size='sm'
+                />
+              }
             />
-          }
-        />
+          </HStack>
+        </Center>
         <AppBar />
         <Footer
           selected={selected}
