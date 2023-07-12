@@ -46,24 +46,20 @@ export function Home() {
         h='100%'
         justifyContent='space-between'
       >
-        <Center>
-        <HStack>
-            <Fab
-              renderInPortal={false}
-              shadow={2}
-              size='sm'
-              icon={
-                <Icon
-                  color='#FFF'
-                  as={AntDesign}
-                  name='plus'
-                  size='sm'
-                />
-              }
-            />
-          </HStack>
-        </Center>
         <AppBar />
+        <Fab
+          renderInPortal={false}
+          shadow={2}
+          size='sm'
+          icon={
+            <Icon
+              color='#FFF'
+              as={AntDesign}
+              name='plus'
+              size='sm'
+            />
+          }
+        />
         <Footer
           selected={selected}
           setSelected={setSelected}
