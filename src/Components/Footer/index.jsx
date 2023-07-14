@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Pressable, Center, Icon, Text, HStack } from "native-base";
 import {
   MaterialIcons,
@@ -6,11 +6,12 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 
-export function Footer(props) {
-  const { selected, setSelected } = props;
+export function Footer() {
+  const [selected, setSelected] = useState(1);
+
   return (
     <HStack
-      bg='indigo.600'
+      bg='#fff'
       alignItems='center'
       safeAreaBottom={true}
       shadow={6}
@@ -25,16 +26,12 @@ export function Footer(props) {
         <Center>
           <Icon
             mb='1'
-            as={
-              <MaterialCommunityIcons
-                name={selected ? "home" : "home-outline"}
-              />
-            }
-            color='#FFF'
+            as={<MaterialCommunityIcons name='home' />}
+            color={selected === 0 ? "indigo.600" : "#3F3E42"}
             size='sm'
           />
           <Text
-            color='#FFF'
+            color={selected === 0 ? "indigo.600" : "#3F3E42"}
             fontSize='12'
           >
             Home
@@ -52,11 +49,11 @@ export function Footer(props) {
           <Icon
             mb='1'
             as={<MaterialIcons name='search' />}
-            color='white'
+            color={selected === 1 ? "indigo.600" : "#3F3E42"}
             size='sm'
           />
           <Text
-            color='white'
+            color={selected === 1 ? "indigo.600" : "#3F3E42"}
             fontSize='12'
           >
             Search
@@ -78,11 +75,11 @@ export function Footer(props) {
                 name={selected === 2 ? "heart" : "heart-outline"}
               />
             }
-            color='white'
+            color={selected === 2 ? "indigo.600" : "#3F3E42"}
             size='sm'
           />
           <Text
-            color='white'
+            color={selected === 2 ? "indigo.600" : "#3F3E42"}
             fontSize='12'
           >
             Favorites
@@ -104,11 +101,11 @@ export function Footer(props) {
                 name={selected === 3 ? "account" : "account-outline"}
               />
             }
-            color='white'
+            color={selected === 3 ? "indigo.600" : "#3F3E42"}
             size='sm'
           />
           <Text
-            color='white'
+            color={selected === 3 ? "indigo.600" : "#3F3E42"}
             fontSize='12'
           >
             Account

@@ -1,6 +1,6 @@
 import {
   StatusBar,
-  Box,
+  Checkbox,
   Center,
   Fab,
   HStack,
@@ -9,6 +9,7 @@ import {
   Pressable,
   VStack,
   Text,
+  Box,
 } from "native-base";
 import React, { useState } from "react";
 import {
@@ -18,39 +19,38 @@ import {
 } from "@expo/vector-icons";
 import { AppBar } from "../../Components/AppBar";
 import { Footer } from "../../Components/Footer";
+import { List } from "../../Components/List";
 
 export function Home() {
-  const [selected, setSelected] = useState(1);
-
-  const [todos, setTodos] = useState([]);
-  const [todoItem, setTodoItem] = useState("");
-
-  const handleAddTodo = () => {
-    if (todoItem === "") {
-    } else {
-      const newTodo = {
-        label: todoItem,
-        completed: false,
-        favorite: false,
-      };
-      const updatedTodos = [...todos, newTodo];
-      setTodos(updatedTodos);
-      setTodoItem("");
-    }
-  };
-
   return (
-    <Center>
+    <Center safeArea>
       <VStack
         w='100%'
         h='100%'
         justifyContent='space-between'
-        alignItems='center'
+        bgColor='coolGray.50'
       >
         <AppBar />
+        <VStack>
+          <Box mb='3'>
+            <List
+              title='Favorites'
+              favorite={true}
+            />
+          </Box>
+          <Box>
+            <List
+              title='TodoList'
+              favorite={false}
+            />
+          </Box>
+        </VStack>
         <Fab
+          position='absolute'
+          bottom='100'
           renderInPortal={false}
-          shadow={2}
+          bgColor='indigo.600'
+          shadow={1}
           size='sm'
           icon={
             <Icon
@@ -61,10 +61,7 @@ export function Home() {
             />
           }
         />
-        <Footer
-          selected={selected}
-          setSelected={setSelected}
-        />
+        <Footer />
       </VStack>
     </Center>
   );
